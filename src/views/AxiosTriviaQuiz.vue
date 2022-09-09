@@ -9,12 +9,11 @@
             <v-card class="ma-15" ref="form" color="#D8FFF8">
                 <v-card-text>
             
-                    <h1 id="logo-headline">Quiz </h1>
-                    <h5>Score: {{score}}/{{questions.length}}</h5>
-                    <v-spacer></v-spacer>        
-                    <h5>Question: {{questionCurrentNumber}}/{{questions.length}}</h5>
+                    <h1 id="logo-headline">Quiz</h1>
+                    <h5>Score: {{score}}/{{questions.length}}</h5>                          
             <!-- div#correctAnswers -->
                     <v-spacer class="divider"></v-spacer>
+                    <h5>Question: {{questionCurrentNumber}}/{{questions.length}}</h5>
                     <section class="quiz" v-if="!quizCompleted">
                         <span>
                             <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
@@ -27,7 +26,7 @@
                                     @click.prevent="handleButtonClick"
                                 ></button>
                             </form>
-                            <v-spacer class="divider"></v-spacer>
+                            <v-spacer></v-spacer>
                         </span>
                     </section>
                     <section v-else>
@@ -178,7 +177,7 @@
   #logo-headline {
     font-size: 2rem;
     padding: 0.5rem;
-    color: #f5002e;
+    color: #7eb2ff;
     text-align: center;
   }
   
@@ -205,7 +204,7 @@
   
   .divider {
     margin: 0.5rem 0;
-    border: 2px solid rgba(102, 255, 166, 0.7);
+    border: 2px solid rgba(102, 163, 255, 0.986);
     border-radius: 2px;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
   }
