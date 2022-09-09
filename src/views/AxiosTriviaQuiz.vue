@@ -8,10 +8,18 @@
         >
             <v-card class="ma-15" ref="form" color="#D8FFF8">
                 <v-card-text>
+                  
+                  <section class="quiz" v-if="!squiz">
+                    <h1 id="logo-headline">Take a Quiz?</h1>  
+                    <v-card-text class="startquizcard">
+                      <v-btn class="btn" depressed outlined color="teal" @click="startQuiz">Start</v-btn>
+                    </v-card-text>
+                  </section>
+                  <section v-else>
                   <section class="quiz" v-if="!quizCompleted">
                     <h1 id="logo-headline">Quiz</h1>
                     <h5>Score: {{score}}/{{questions.length}}</h5>                            
-            <!-- div#correctAnswers -->
+                    <!-- div#correctAnswers -->
                     <v-spacer class="divider"></v-spacer>
                     <h5>Question: {{questionCurrentNumber}}/{{questions.length}}</h5>
                         <span>
@@ -40,6 +48,7 @@
                         </v-card-text>
                         
                     </section>
+                  </section>
                 </v-card-text>
             </v-card>
         </v-col>
@@ -61,6 +70,7 @@
         result: "",
         passingScore:"",
         pass:false,
+        squiz:false,
       };
     },
     computed: {
@@ -104,7 +114,10 @@
         this.questions = data;
         this.loading = false;
       },
-      
+      startQuiz(){
+          this.squiz=true;
+          return squiz
+      },
       handleButtonClick: function (event) {
         /* Find index to identiy question object in data */
         let index = event.target.getAttribute("index");
@@ -243,11 +256,20 @@
     }
   }
   
-  h1 {
+h1 {
     font-size: 1.3rem;
     padding: 0.7rem;
-  }
-  
+}
+.btn{
+     color: white;
+     text-align: center;
+     height: auto;
+     border-radius: 50px;
+}
+.startquizcard{
+  justify-content: center;
+  padding-left: 35%;
+}
   .divider {
     margin: 0.5rem 0;
     border: 2px solid rgba(102, 163, 255, 0.986);
