@@ -36,8 +36,8 @@
       
       </v-toolbar>
 
-     <v-navigation-drawer app v-model="drawer" class="navdrawer">
-      <router-link to="/aboutme">
+     <v-navigation-drawer app v-model="drawer">
+      <router-link to="/aboutme" class="rlink">
         <v-card-text class="abtme"><img class="myimage" src="/Naguit.png" alt="My Picture"> Christian Dave C. Naguit</v-card-text>
       </router-link>
       
@@ -58,8 +58,11 @@
   background-color: #D8FFF8;
 }
 .abtme{
-  margin-top: 5px;
-  margin-right: 5%;
+  color: white;
+  background-color: rgb(37, 37, 37) ;
+}
+.rlink{
+  background-color: black;
 }
 a {
   text-decoration: none; 
@@ -90,8 +93,9 @@ a:visited{ color: black }
            { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/' },
            { title: 'Simple Calculator', icon: 'mdi-calculator-variant', path: '/basicMath' },
            { title: 'Vowel Count', icon: 'mdi-help-box', path: '/stringApp'},
-           { title: 'About Vuetify', icon: 'mdi-vuetify', path: '/aboutView'},
+           { title: 'About Vuetify', icon: 'mdi-vuetify', path: '/aboutVuetify'},
            { title: 'Quiz', icon:'mdi-alpha-q-box-outline', path: '/axiosQuiz'},
+           { title: 'About Project', icon:'mdi-clipboard-clock-outline', path: '/aboutProject'},
         ])
 
  function toggleDrawer(){

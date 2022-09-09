@@ -1,20 +1,19 @@
 <template>
     <v-row class="vrow">
         <v-col
-            cols="12"
+            cols="5"
             sm="10"
             md="8"
             lg="6"
         >
             <v-card class="ma-15" ref="form" color="#D8FFF8">
                 <v-card-text>
-            
+                  <section class="quiz" v-if="!quizCompleted">
                     <h1 id="logo-headline">Quiz</h1>
-                    <h5>Score: {{score}}/{{questions.length}}</h5>                          
+                    <h5>Score: {{score}}/{{questions.length}}</h5>                            
             <!-- div#correctAnswers -->
                     <v-spacer class="divider"></v-spacer>
                     <h5>Question: {{questionCurrentNumber}}/{{questions.length}}</h5>
-                    <section class="quiz" v-if="!quizCompleted">
                         <span>
                             <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
                             <form v-if="currentQuestion">
@@ -30,8 +29,16 @@
                         </span>
                     </section>
                     <section v-else>
-                        <h2>Done Quiz</h2>
-                        <p>Your score is {{score}}/{{questions.length}}</p>
+                        <h1 id="quizresult">Quiz Result:</h1>
+                        <v-card-text v-if="!pass">
+                          <h1 id="quizfailed">{{result}}</h1>
+                          <p id="quizfailed">{{score}}/{{questions.length}}</p>
+                        </v-card-text>
+                        <v-card-text v-else>
+                          <h1 id="quizpassed">{{result}}</h1>
+                          <p id="quizpassed">{{score}}/{{questions.length}}</p>
+                        </v-card-text>
+                        
                     </section>
                 </v-card-text>
             </v-card>
@@ -51,6 +58,9 @@
         score: 0,
         questionCurrentNumber: 1,
         quizCompleted: false,
+        result: "",
+        passingScore:"",
+        pass:false,
       };
     },
     computed: {
@@ -151,10 +161,23 @@
             });
           }
           
-          if(this.questionCurrentNumber==this.questions.length){
-            this.questionCurrentNumber--;
+          if(this.questionCurrentNumber<this.questions.length){
+            this.questionCurrentNumber++;
           }
-            this.questionCurrentNumber+=1;
+          else{
+            this.quizCompleted= true
+            if(this.quizCompleted=true){
+            this.passingScore= (0.5*this.questions.length);
+            if(this.score>=this.passingScore){
+              this.result= "Passed"
+              this.pass=true
+            }
+            else{
+              this.result= "Failed"              
+            }
+          }
+          }
+            
         }
         
       },
@@ -173,7 +196,30 @@
     padding: 1rem;
     max-width: 750px;
   }
-  
+  #resultscore{
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: #7eb2ff;
+    text-align: center;
+  }
+  #quizresult{
+    font-size: 2rem;
+    color: #202020;    
+  }
+  #quizpassed{
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    color: #67ff9a;
+    text-align: center;
+    border: 1px;
+  }
+  #quizfailed{
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    color: #ff6161;
+    text-align: center;
+    border: 1px;
+  }
   #logo-headline {
     font-size: 2rem;
     padding: 0.5rem;
@@ -285,10 +331,10 @@
   }
   .vrow {
      justify-content: center;
-     margin-right: 50%;
-     padding-left: 5%;
-     height: 100%;
-     width: 100%;
+     margin-right: 50% auto;
+     padding-left: 5% auto;
+     height: 100% auto;
+     width: 100% auto;
      font-size: 15px;
      font-weight: 600;
 }
@@ -302,7 +348,7 @@
 }
 .ma-15{
   border-radius:50px;
-  padding-top: 25px;
+  padding-top: 10px;
 }
   button.showRightAnswer {
     animation: flashButton;

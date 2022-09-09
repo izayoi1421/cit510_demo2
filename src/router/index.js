@@ -5,6 +5,8 @@ import HomeView from '../views/HomeView.vue'
 import AboutMeView from '../views/AboutMeView.vue'
 import AxiosDemoView from '../views/AxiosDemoView.vue'
 import AxiosTriviaQuiz from '../views/AxiosTriviaQuiz.vue'
+import AboutVuetify from '../views/AboutVuetify.vue'
+import AboutProject from '../views/AboutProject.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +40,16 @@ const router = createRouter({
         path: '/axiosQuiz',
         name: 'axiosQuiz',
         component: AxiosTriviaQuiz
+      },              
+      {
+        path: '/aboutVuetify',
+        name: 'aboutVuetify',
+        component: AboutVuetify
+      },              
+      {
+        path: '/aboutProject',
+        name: 'aboutProject',
+        component: AboutProject
       },              
   ]
 })
