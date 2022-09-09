@@ -3,7 +3,7 @@
       <v-toolbar app color="#D8FFF8">
        <v-app-bar-nav-icon @click='toggleDrawer'></v-app-bar-nav-icon>
       <v-toolbar-title >
-        <span>Naguit Lab 5 </span>
+        <span>Naguit Project</span>
 
       </v-toolbar-title>
       <v-spacer></v-spacer>
