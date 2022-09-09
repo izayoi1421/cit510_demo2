@@ -36,14 +36,17 @@
       
       </v-toolbar>
 
-     <v-navigation-drawer app v-model="drawer" >
+     <v-navigation-drawer app v-model="drawer" class="navdrawer">
+      <router-link to="/aboutme">
+        <v-card-text class="abtme"><img class="myimage" src="/Naguit.png" alt="My Picture"> Christian Dave C. Naguit</v-card-text>
+      </router-link>
+      
        <v-list-item
           v-for="item in items"
           :key="item.title"
           router 
           :to="item.path" :prepend-icon="item.icon">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-          
+          <v-list-item-title>{{item.title}}</v-list-item-title>
         </v-list-item>
       
      </v-navigation-drawer>
@@ -53,6 +56,28 @@
 <style scoped>
 .nav{
   background-color: #D8FFF8;
+}
+.abtme{
+  margin-top: 5px;
+  margin-right: 5%;
+}
+a {
+  text-decoration: none; 
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none; 
+    cursor:pointer;  
+}
+a:visited{ color: black }
+.myimage{
+     height: 40px;
+     width: 40px;
+     border-radius:70px;
+     vertical-align:middle;
 }
 </style>
 
@@ -65,8 +90,8 @@
            { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/' },
            { title: 'Simple Calculator', icon: 'mdi-calculator-variant', path: '/basicMath' },
            { title: 'Vowel Count', icon: 'mdi-help-box', path: '/stringApp'},
-           { title: 'About Myself', icon: 'mdi-account-box', path: '/aboutme'},
-           { title: 'Quiz', icon: 'mdi-alpha-q-box-outline', path: '/axiosQuiz'},
+           { title: 'About Vuetify', icon: 'mdi-vuetify', path: '/aboutView'},
+           { title: 'Quiz', icon:'mdi-alpha-q-box-outline', path: '/axiosQuiz'},
         ])
 
  function toggleDrawer(){
