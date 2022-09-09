@@ -14,7 +14,7 @@
  >
 
   <v-card-title style="text-align:center"> About Me </v-card-title>
-          <img class="myimage" src="Naguit.png" alt="My Picture">
+          <img class="myimage" src="/Naguit.png" alt="My Picture">
             <p style="text-align:center" color="#D8FFF8">
             
             "My name is Christian Dave C. Naguit, Currently a 4th year College, taking a course of Information Technology. I am a student of Mr. Chavez from the subject of Integrative Programming Technology 2. Taking IPT2 subject helps me in enhancing my coding skills in programming.
