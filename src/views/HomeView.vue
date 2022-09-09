@@ -1,7 +1,7 @@
 
 
 <template>
-<v-row justify="center" t="ma-xs-2">
+<v-row class="row" justify="center" t="ma-xs-2">
     <v-col
       cols="12"
       sm="10"
@@ -38,6 +38,9 @@
   width: 50%;
   height: 100%;
   border-radius:50px;
+}
+.row{
+  margin-left: 15%;
 }
 </style>
 <script setup>

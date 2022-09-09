@@ -66,7 +66,7 @@
            { title: 'Simple Calculator', icon: 'mdi-calculator-variant', path: '/basicMath' },
            { title: 'Vowel Count', icon: 'mdi-help-box', path: '/stringApp'},
            { title: 'About Myself', icon: 'mdi-account-box', path: '/aboutme'},
-           { title: 'Quiz', icon: 'mdi-account-box', path: '/axiosQuiz'},
+           { title: 'Quiz', icon: 'mdi-alpha-q-box-outline', path: '/axiosQuiz'},
         ])
 
  function toggleDrawer(){
