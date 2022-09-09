@@ -10,6 +10,7 @@
                 <v-card-text>
                   
                   <section class="quiz" v-if="!squiz">
+                    <h1>Category: Video Games</h1>
                     <h1 id="logo-headline">Take a Quiz?</h1>  
                     <v-card-text class="startquizcard">
                       <v-btn class="btn" depressed outlined color="teal" @click="startQuiz">Start</v-btn>
@@ -87,7 +88,7 @@
       async fetchQuestions() {
         this.loading = true;
         let response = await fetch(
-          "https://opentdb.com/api.php?amount=5&category=9"
+          "https://opentdb.com/api.php?amount=15&category=15"
         );
         let jsonResponse = await response.json();
         let index = 0; // index is used to identify single answer
