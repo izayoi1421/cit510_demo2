@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav v-if="isLoggedIn">
       <v-toolbar app color="#D8FFF8">
        <v-app-bar-nav-icon @click='toggleDrawer'></v-app-bar-nav-icon>
       <v-toolbar-title >
@@ -31,7 +31,13 @@
         </v-list-item>
       </v-list>
     </v-menu>
-
+    <v-btn
+          color="error"
+          @click="handleSignOut"
+          v-if="isLoggedIn"
+        >
+          Sign Out
+        </v-btn>
       
       
       </v-toolbar>
@@ -86,11 +92,14 @@ a:visited{ color: black }
 
 <script setup>
   import { ref } from 'vue'
-    
-  const drawer = ref(false)
+  import { onMounted } from 'vue';
+  import { getAuth, onAuthStateChanged, signOut} from "firebase/auth"
+  import { useRouter} from 'vue-router';
+  const router = useRouter();
+  const drawer = ref(false);
 
   const  items =  ref([
-           { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/' },
+           { title: 'Dashboard', icon: 'mdi-view-dashboard', path: '/home' },
            { title: 'Simple Calculator', icon: 'mdi-calculator-variant', path: '/basicMath' },
            { title: 'Vowel Count', icon: 'mdi-help-box', path: '/stringApp'},
            { title: 'About Vuetify', icon: 'mdi-vuetify', path: '/aboutVuetify'},
@@ -101,6 +110,23 @@ a:visited{ color: black }
  function toggleDrawer(){
   return drawer.value = !drawer.value
  }
+ const isLoggedIn = ref(false);
+ let auth;
+ onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user)=> {
+    if(user) {
+      isLoggedIn.value = true;
+    } else{
+      isLoggedIn.value = false;
+    }
+  });
+ });
+ const handleSignOut = () => {
+  signOut(auth).then(()=>{
+    router.push("/");
+  });
+ };
 
  
 </script>

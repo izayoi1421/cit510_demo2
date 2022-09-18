@@ -39,8 +39,6 @@
       </v-card>
     </v-col>
   </v-row>
-
-
  </template>
 <style scoped>
 

@@ -8,7 +8,6 @@
         >
             <v-card class="ma-15" ref="form" color="#D8FFF8">
                 <v-card-text>
-                  
                   <section class="quiz" v-if="!squiz">
                     <h1>Category: Video Games</h1>
                     <h1 id="logo-headline">Take a Quiz?</h1>  
