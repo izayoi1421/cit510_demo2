@@ -1,18 +1,19 @@
 <template>
-    <v-row class="vrow">
+    <v-row class="vrow" >
         <v-col
             cols="5"
             sm="10"
             md="8"
             lg="6"
         >
-            <v-card class="ma-15" ref="form" color="#D8FFF8">
+            <v-card class="ma-15" ref="form" style="background-color:rgba(19,62,124, 0.75)">
                 <v-card-text>
                   <section class="quiz" v-if="!squiz">
-                    <h1>Category: Video Games</h1>
-                    <h1 id="logo-headline">Take a Quiz?</h1>  
+                    <v-card-text class="logostartquiz">
+                      <img src="/logostartquiz2.png" width="250" height="250"/>
+                    </v-card-text>
                     <v-card-text class="startquizcard">
-                      <v-btn class="btn" depressed outlined color="teal" @click="startQuiz">Start</v-btn>
+                      <img src="/play.png" @click="startQuiz" width="75" height="75"/>
                     </v-card-text>
                   </section>
                   <section v-else>
@@ -23,7 +24,9 @@
                     <v-spacer class="divider"></v-spacer>
                     <h5>Question: {{questionCurrentNumber}}/{{questions.length}}</h5>
                         <span>
+                          <v-card-text class="questioncard">
                             <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+                          </v-card-text>
                             <form v-if="currentQuestion">
                                 <button
                                     v-for="answer in currentQuestion.answers"
@@ -37,16 +40,18 @@
                         </span>
                     </section>
                     <section v-else>
-                        <h1 id="quizresult">Quiz Result:</h1>
                         <v-card-text v-if="!pass">
+                          <img src="/gameover.png" style="  display: block; margin-left: auto; margin-right: auto;" width="400" height="350"/>
                           <h1 id="quizfailed">{{result}}</h1>
                           <p id="quizfailed">{{score}}/{{questions.length}}</p>
+                          
                         </v-card-text>
                         <v-card-text v-else>
+                          <img src="/win.png" style="  display: block; margin-left: auto; margin-right: auto;" width="200" height="200"/>
                           <h1 id="quizpassed">{{result}}</h1>
                           <p id="quizpassed">{{score}}/{{questions.length}}</p>
+                          
                         </v-card-text>
-                        
                     </section>
                   </section>
                 </v-card-text>
@@ -56,6 +61,9 @@
   </template>
     
     <script>
+  import {ref} from "vue";
+  import { getAuth, signInWithEmailAndPassword} from "firebase/auth";
+  import db from '@/fb'
   export default {
     name: "Quiz",
     // data() function stores state variables
@@ -118,6 +126,7 @@
           this.squiz=true;
           return squiz
       },
+  
       handleButtonClick: function (event) {
         /* Find index to identiy question object in data */
         let index = event.target.getAttribute("index");
@@ -178,6 +187,7 @@
             this.questionCurrentNumber++;
           }
           else{
+            const auth = getAuth();
             this.quizCompleted= true
             if(this.quizCompleted=true){
             this.passingScore= (0.5*this.questions.length);
@@ -186,16 +196,26 @@
               this.pass=true
             }
             else{
-              this.result= "Failed"              
+              this.result= "Failed"
             }
           }
+            const project = {
+              user: auth.currentUser.email,
+              scores: this.score,
+              remarks: this.result,
+              timestamp: new Date(),
+            }
+            db.collection('projects').add(project).then(() => {
+              console.log("Quiz has been recorded")
+            })
+
           }
-            
+
         }
-        
+
       },
     },
-    
+
     // Code inside mounted() runs after the Component has mounted
     mounted() {
       this.fetchQuestions();
@@ -204,6 +224,12 @@
   </script>
     
     <style scoped>
+  .vrow{
+    height: 101%;
+    width: 105%;
+    background-size: cover;
+    background-image: url("layoutHome.jpg");
+  }
   .quiz-container {
     margin: 1rem auto;
     padding: 1rem;
@@ -217,7 +243,7 @@
   }
   #quizresult{
     font-size: 2rem;
-    color: #202020;    
+    color: #ff6161;    
   }
   #quizpassed{
     font-size: 1.7rem;
@@ -261,14 +287,18 @@ h1 {
     padding: 0.7rem;
 }
 .btn{
-     color: white;
-     text-align: center;
-     height: auto;
-     border-radius: 50px;
+    
+     background-image: url("playbutton.png");
+     background-size: cover;
+}
+.logostartquiz{
+  justify-content: center;
+  margin-left: 26%;
+  
 }
 .startquizcard{
   justify-content: center;
-  padding-left: 35%;
+  padding-left: 44%;
 }
   .divider {
     margin: 0.5rem 0;
@@ -285,12 +315,23 @@ h1 {
   }
   
   button {
-    font-size: 1.1rem;
+    font-size: 1rem;
     box-sizing: border-box;
     padding: 1rem;
     margin: 0.3rem;
     width: 47%;
-    background-color: rgba(100, 100, 100, 0.3);
+    background-color: rgba(255, 255, 255, 0.541);
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .questioncard{
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    margin-left: 30px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.541);
     border: none;
     border-radius: 0.4rem;
     box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
@@ -338,8 +379,8 @@ h1 {
     color: black;
     background: linear-gradient(
       210deg,
-      rgba(0, 178, 72, 0.25),
-      rgba(0, 178, 72, 0.5)
+      rgba(0, 178, 72, 0.5),
+      rgba(0, 178, 72, 0.75)
     );
   }
   
@@ -347,8 +388,8 @@ h1 {
     color: black;
     background: linear-gradient(
       210deg,
-      rgba(245, 0, 87, 0.25),
-      rgba(245, 0, 87, 0.5)
+      rgba(245, 0, 87, 0.5),
+      rgba(245, 0, 87, 0.75)
     );
   }
   .vrow {

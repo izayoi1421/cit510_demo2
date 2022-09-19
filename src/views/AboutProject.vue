@@ -8,7 +8,7 @@
         >     
             <v-card
                 class="ma-15"
-                max-width="600"     
+                style="background-color: rgba(19, 62, 124, 0)"
             >
     
                 <v-card-title style="text-align:center"> Vuetify </v-card-title>
@@ -25,22 +25,22 @@
 </template>
     <style scoped>
     
-    .vrow {
-         justify-content: center;
-         margin-right: 50%;
-         height: 100%;
-         width: 100%;
-         font-size: 15px;
-         font-weight: 600;
-         
-    }
     .ma-15{
-         background-color: #D8FFF8;
-         border-radius:50px;
-         height: 470px;
-         width: 600px;
-         padding: 20px;
-    }
+     height: 420px;
+     width: 550px;
+     padding: 25px;
+     margin-bottom: 100px;
+}
+.vrow {
+  margin-right: 50%;
+     padding-left: 23% ;
+     padding-top: 4% ;
+     height: 98%;
+     width: 101% ;
+     font-size: 10px;
+  background-image: url("aboutpages.png");
+  background-size: cover;
+}
     .vue3{
          height: 250px;
          width: 250px;

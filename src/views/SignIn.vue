@@ -6,9 +6,9 @@
           md="8"
           lg="6"
         >
-            <v-card class="ma-15" ref="form" color="#D8FFF8">
+            <v-card class="ma-15" ref="form">
                 <v-card-text>
-                    <v-card-title><h2>Sign In to an Account</h2></v-card-title>
+                    <v-card-title class="logintitle"><h1>Log In</h1></v-card-title>
                     <v-text-field
                         v-model="email"
                         :error-messages="errorMessages"
@@ -27,7 +27,7 @@
                 </v-card-text>
                 <v-card-actions class="vcardaction">
                     <v-btn type="text" rounded color="#00539CFF" class="btn" @click="signin">Sign In</v-btn>
-                    <v-btn type="password" rounded color="#00539CFF" class="btn" @click="signInWithGoogle">Sign In With Google</v-btn>
+                    
                 </v-card-actions>
             </v-card>
         </v-col>
@@ -42,10 +42,12 @@
          justify-content: center;
          margin-right: 50%;
          padding-left: 5%;
-         height: 100%;
-         width: 100%;
+         height: 101%;
+         width: 105%;
          font-size: 15px;
-         font-weight: 600;
+         font-weight: 200;
+         background-image: url("loginBG3.jpg");
+         background-size: cover;
     }
     .vcard{
       border-radius:50px;
@@ -57,10 +59,12 @@
     }
     .ma-15{
       border-radius:50px;
-      padding-top: 25px;
+      padding-top: 20px;
+      background-color:rgba(128, 170, 247, 0.897) ;
+      margin-top:50%;
     }
     .btn{
-        background: #EEA47FFF;
+        background:rgba(238, 164, 127, 0.548);
     }
     </style>
 

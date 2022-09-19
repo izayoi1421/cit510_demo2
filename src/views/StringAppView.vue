@@ -8,8 +8,8 @@
     >     
  <v-card
     class="ma-15"
-    max-width="600"
     color="#D8FFF8"
+    style="background-color: rgba(19, 62, 124, 0.3)"
  >
 
   <v-card-title> Vowel Counting </v-card-title>
@@ -34,17 +34,20 @@
 </template>
 <style scoped>
 .ma-15{
-  border-radius:50px;
-  padding-top: 25px;
+     border-radius:50px;
+     height: 420px;
+     width: 400px;
+     padding: 25px;
 }
 .vrow {
-     justify-content: center;
-     margin-right: 50%;
-     
-     height: 100%;
-     width: 100%;
-     font-size: 15px;
-     font-weight: 600;
+  margin-right: 50%;
+     padding-left: 10% ;
+     padding-top: 4% ;
+     height: 98%;
+     width: 101% ;
+     font-size: 10px;
+  background-image: url("stringmanipulator.png");
+  background-size: cover;
 }
 .vcardaction {
   display: flex;

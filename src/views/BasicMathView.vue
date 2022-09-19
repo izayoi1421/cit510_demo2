@@ -8,7 +8,7 @@
       md="8"
       lg="6"
     >
-      <v-card class="ma-15" ref="form" color="#D8FFF8">
+      <v-card class="ma-15" ref="form" style="background-color: rgba(19, 62, 124, 0.3)"  >
         <v-card-text>
           <v-text-field
             v-model.number="fNumber"
@@ -34,7 +34,7 @@
         <v-divider class="mt-12"></v-divider>
 
         <v-card-actions class="vcardaction">
-        <v-btn rounded color="#1520A6" class="btn" @click="doCompute">Result</v-btn>
+        <v-btn class="btn" @click="doCompute">Result</v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -43,16 +43,22 @@
 <style scoped>
 
 .vrow {
-     justify-content: center;
+  
      margin-right: 50%;
-     padding-left: 5%;
-     height: 100%;
-     width: 100%;
-     font-size: 15px;
-     font-weight: 600;
+     padding-left: 45% ;
+     padding-top: 7% ;
+     height: 98%;
+     width: 101% ;
+     font-size: 10px;
+  background-image: url("Calculator.png");
+  background-size: cover;
 }
-.vcard{
-  border-radius:50px;
+.ma-15{
+     color: #D8FFF8;
+     border-radius:50px;
+     height: 420px;
+     width: 400px;
+     padding: 25px;
 }
 .vcardaction {
   display: flex;
@@ -61,7 +67,8 @@
 }
 .ma-15{
   border-radius:50px;
-  padding-top: 25px;
+  
+  padding: 25px;
 }
 </style>
 <script setup>

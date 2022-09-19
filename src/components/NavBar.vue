@@ -1,6 +1,6 @@
 <template>
   <nav v-if="isLoggedIn">
-      <v-toolbar app color="#D8FFF8">
+      <v-toolbar app style="background-image: linear-gradient(#ff2a6d, #05d9eB)">
        <v-app-bar-nav-icon @click='toggleDrawer'></v-app-bar-nav-icon>
       <v-toolbar-title >
         <span>Naguit Project</span>

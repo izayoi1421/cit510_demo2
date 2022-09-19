@@ -11,6 +11,8 @@ import AboutVuetify from '../views/AboutVuetify.vue'
 import AboutProject from '../views/AboutProject.vue'
 import Register from '../views/Register.vue'
 import SignIn from '../views/SignIn.vue'
+import MakeAdmin from '../views/MakeAdmin.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -88,6 +90,11 @@ const router = createRouter({
       meta:{
         requiresAuth: true,
       },
+    },    
+    {
+      path: '/makeAdmin',
+      name: 'makeAdmin',
+      component: MakeAdmin,
     },    
   ]
 })
