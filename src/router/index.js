@@ -5,7 +5,6 @@ import BasicMathView from '../views/BasicMathView.vue'
 import StringAppView from '../views/StringAppView.vue'
 import HomeView from '../views/HomeView.vue'
 import AboutMeView from '../views/AboutMeView.vue'
-import AxiosDemoView from '../views/AxiosDemoView.vue'
 import AxiosTriviaQuiz from '../views/AxiosTriviaQuiz.vue'
 import AboutVuetify from '../views/AboutVuetify.vue'
 import AboutProject from '../views/AboutProject.vue'
@@ -46,14 +45,6 @@ const router = createRouter({
         requiresAuth: true,
       },
       },
-      {
-        path: '/axiosDemo',
-        name: 'axiosDemo',
-        component: AxiosDemoView,
-        meta:{
-          requiresAuth: true,
-        },
-      },      
       {
         path: '/axiosQuiz',
         name: 'axiosQuiz',

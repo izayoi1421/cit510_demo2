@@ -228,7 +228,7 @@
     height: 101%;
     width: 105%;
     background-size: cover;
-    background-image: url("layoutHome.jpg");
+    background-image: url("/layoutHome.jpg");
   }
   .quiz-container {
     margin: 1rem auto;

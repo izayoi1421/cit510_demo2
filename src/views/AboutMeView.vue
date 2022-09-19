@@ -35,7 +35,7 @@
      height: 98%;
      width: 101% ;
      font-size: 10px;
-  background-image: url("aboutme.jpg");
+  background-image: url("/aboutme.jpg");
   background-size: cover;
 }
 .ma-15{

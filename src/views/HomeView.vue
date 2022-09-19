@@ -37,7 +37,7 @@
      height: 105%;
      width: 101% ;
      font-size: 10px;
-  background-image: url("welcome.jpg");
+  background-image: url("/welcome.jpg");
   background-size: cover;
 }
 </style>

@@ -38,7 +38,7 @@
      height: 98%;
      width: 101% ;
      font-size: 10px;
-  background-image: url("aboutpages.png");
+  background-image: url("/aboutpages.png");
   background-size: cover;
 }
     .vue3{

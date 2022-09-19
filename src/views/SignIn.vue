@@ -46,7 +46,7 @@
          width: 105%;
          font-size: 15px;
          font-weight: 200;
-         background-image: url("loginBG3.jpg");
+         background-image: url("/loginBG3.jpg");
          background-size: cover;
     }
     .vcard{

@@ -46,7 +46,7 @@
      height: 98%;
      width: 101% ;
      font-size: 10px;
-  background-image: url("stringmanipulator.png");
+  background-image: url("/stringmanipulator.png");
   background-size: cover;
 }
 .vcardaction {

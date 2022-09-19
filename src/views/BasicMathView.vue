@@ -50,7 +50,7 @@
      height: 98%;
      width: 101% ;
      font-size: 10px;
-  background-image: url("Calculator.png");
+  background-image: url("/Calculator.png");
   background-size: cover;
 }
 .ma-15{
