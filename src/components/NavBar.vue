@@ -44,7 +44,7 @@
 
      <v-navigation-drawer app v-model="drawer">
       <router-link to="/aboutme" class="rlink">
-        <v-card-text class="abtme"><img class="myimage" src="/Naguit.png" alt="My Picture"> Christian Dave C. Naguit</v-card-text>
+        <v-card-text class="abtme" id="user-detail"><img class="myimage" src="/Naguit.png" alt="My Picture"> Christian Dave C. Naguit</v-card-text>
       </router-link>
       
        <v-list-item
@@ -110,14 +110,19 @@ a:visited{ color: black }
  function toggleDrawer(){
   return drawer.value = !drawer.value
  }
+
+ const accountDetails = document.querySelector('#user-detail') 
+
  const isLoggedIn = ref(false);
  let auth;
  onMounted(() => {
   auth = getAuth();
   onAuthStateChanged(auth, (user)=> {
     if(user) {
+
       isLoggedIn.value = true;
     } else{
+      
       isLoggedIn.value = false;
     }
   });
@@ -128,5 +133,6 @@ a:visited{ color: black }
   });
  };
 
+ 
  
 </script>

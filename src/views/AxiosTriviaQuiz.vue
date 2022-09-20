@@ -44,13 +44,17 @@
                           <img src="/gameover.png" style="  display: block; margin-left: auto; margin-right: auto;" width="400" height="350"/>
                           <h1 id="quizfailed">{{result}}</h1>
                           <p id="quizfailed">{{score}}/{{questions.length}}</p>
-                          
+                          <span style="  display: block; margin-left: auto; margin-right: auto;padding-left:40%;padding-left:40%">
+                            <v-btn type="text" rounded color="#00539CFF" style="padding-bottom:10%;color:greenyellow;" class="btn1" @click="reloadPage()">Play Again?</v-btn>
+                          </span>
                         </v-card-text>
                         <v-card-text v-else>
                           <img src="/win.png" style="  display: block; margin-left: auto; margin-right: auto;" width="200" height="200"/>
                           <h1 id="quizpassed">{{result}}</h1>
                           <p id="quizpassed">{{score}}/{{questions.length}}</p>
-                          
+                          <span style="  display: block; margin-left: auto; margin-right: auto;padding-left:40%;padding-left:40%">
+                            <v-btn type="text" rounded color="#00539CFF" style="padding-bottom:10%;color:greenyellow;" class="btn1" @click="reloadPage()">Play Again?</v-btn>
+                          </span>
                         </v-card-text>
                     </section>
                   </section>
@@ -126,7 +130,13 @@
           this.squiz=true;
           return squiz
       },
-  
+      reloadPage() {
+        this.squiz=false;
+        this.quizCompleted=false;
+        this.index= 0;
+        this.score= 0;
+        this.questionCurrentNumber= 1;
+      },
       handleButtonClick: function (event) {
         /* Find index to identiy question object in data */
         let index = event.target.getAttribute("index");
@@ -235,6 +245,10 @@
     padding: 1rem;
     max-width: 750px;
   }
+.tryagain{
+  padding-left: 10px;
+}
+  
   #resultscore{
     font-size: 2rem;
     padding: 0.5rem;
@@ -290,6 +304,11 @@ h1 {
     
      background-image: url("playbutton.png");
      background-size: cover;
+}
+
+.btn1{
+  width: 120px;
+  border-radius: 50px;
 }
 .logostartquiz{
   justify-content: center;

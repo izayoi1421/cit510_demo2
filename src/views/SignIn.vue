@@ -1,5 +1,5 @@
 <template>
-    <v-row class="vrow">
+    <v-row class="vrow" v-if="!isLoggedIn">
         <v-col
           cols="12"
           sm="10"
@@ -26,9 +26,18 @@
                     ></v-text-field>
                 </v-card-text>
                 <v-card-actions class="vcardaction">
-                    <v-btn type="text" rounded color="#00539CFF" class="btn" @click="signin">Sign In</v-btn>
-                    
+                    <span style="padding-left:60px;padding-bottom:15px;">
+                        <v-btn type="text" rounded color="#00539CFF" class="btn" @click="signin">Sign In</v-btn>
+                    </span>
+                    <v-spacer></v-spacer>
+                    <span style="padding-right:60px;padding-bottom:15px;">
+                        <router-link to="/register" style="text-decoration: none;">
+                            <v-btn type="text" rounded color="#00539CFF" class="btn">Go to Registration</v-btn>    
+                        </router-link>
+                    </span>
                 </v-card-actions>
+                
+                
             </v-card>
         </v-col>
     </v-row>
@@ -40,7 +49,7 @@
     
     .vrow {
          justify-content: center;
-         margin-right: 50%;
+         margin-right: 55%;
          padding-left: 5%;
          height: 101%;
          width: 105%;
@@ -58,6 +67,8 @@
       align-items: center;
     }
     .ma-15{
+    justify-content: center;
+      width:400px;
       border-radius:50px;
       padding-top: 20px;
       background-color:rgba(128, 170, 247, 0.897) ;
@@ -76,7 +87,6 @@
     const password = ref("");
     const errMsg  = ref()
     const router = useRouter();
-    
     const signin = () => {
         const auth = getAuth()
         signInWithEmailAndPassword(auth, email.value, password.value)
@@ -106,7 +116,5 @@
             });
     };
     
-    const signInWithGoogle  = () => {
-    
-    };
+
     </script>

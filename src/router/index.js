@@ -11,6 +11,7 @@ import AboutProject from '../views/AboutProject.vue'
 import Register from '../views/Register.vue'
 import SignIn from '../views/SignIn.vue'
 import MakeAdmin from '../views/MakeAdmin.vue'
+import Test from '../views/Test.vue'
 
 
 const router = createRouter({
@@ -19,7 +20,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'signIn',
-      component: SignIn
+      component: SignIn,
+      meta:{
+        requiresAuth: false,
+      },
     },
     {
       path: '/stringApp',
@@ -72,7 +76,10 @@ const router = createRouter({
     {         
       path: '/register',
       name: 'register',
-      component: Register
+      component: Register,
+      meta:{
+        requiresAuth: false,
+      },
     },              
     {
       path: '/home',
@@ -86,6 +93,11 @@ const router = createRouter({
       path: '/makeAdmin',
       name: 'makeAdmin',
       component: MakeAdmin,
+    },    
+    {
+      path: '/test',
+      name: 'test',
+      component: Test,
     },    
   ]
 })
