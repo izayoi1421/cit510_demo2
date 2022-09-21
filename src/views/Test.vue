@@ -53,7 +53,7 @@
         async fetchLeaderBoards() {
 
 
-        const dbfileref = collection(db, "projects");
+        const dbfileref = collection(db, "userQuizResult");
         const q = query(dbfileref, orderBy("scores"));
         const querySnapshot = await getDocs(q);
         

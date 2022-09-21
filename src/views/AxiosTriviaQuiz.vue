@@ -209,13 +209,13 @@
               this.result= "Failed"
             }
           }
-            const project = {
+            const data = {
               user: auth.currentUser.email,
               scores: this.score,
               remarks: this.result,
               timestamp: new Date(),
             }
-            db.collection('projects').add(project).then(() => {
+            db.collection('userQuizResult').add(data).then(() => {
               console.log("Quiz has been recorded")
             })
 
