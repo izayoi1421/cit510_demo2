@@ -6,7 +6,7 @@
           <table boder="1">
             <thead>
               <tr>
-                <th scope="col">Book</th>
+                <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Action</th>
               </tr>
@@ -43,6 +43,18 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+  import { useLoadUsers, deleteUser } from "@/fb";
+  
+  export default {
+    setup() {
+      const users = useLoadUsers();
+      return { users, deleteUser };
+    },
+  };
+  </script>
+  
 <style scoped>
 .vrow {
   justify-content: center;
@@ -75,13 +87,4 @@
   background: rgba(238, 164, 127, 0.548);
 }
 </style>
-<script>
-import { useLoadUsers, deleteUser } from "@/fb";
 
-export default {
-  setup() {
-    const users = useLoadUsers();
-    return { users, deleteUser };
-  },
-};
-</script>
