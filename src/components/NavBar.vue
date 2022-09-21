@@ -105,7 +105,7 @@ a:visited{ color: black }
            { title: 'About Vuetify', icon: 'mdi-vuetify', path: '/aboutVuetify'},
            { title: 'Quiz', icon:'mdi-alpha-q-box-outline', path: '/axiosQuiz'},
            { title: 'About Project', icon:'mdi-clipboard-clock-outline', path: '/aboutProject'},
-           
+           { title: 'Crud', icon:'mdi-clipboard-clock-outline', path: '/crud'},
         ])
 
  function toggleDrawer(){

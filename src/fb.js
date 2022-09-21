@@ -19,8 +19,7 @@ const db = firebase.firestore();
 db.settings({ timestampsInSnapshots: true})
   export default db;
 
-  const usersCollection = db.collection('users')
-
+  const usersCollection = db.collection('userQuizResult') 
 export const createUser = user => {
   return usersCollection.add(user)
 }

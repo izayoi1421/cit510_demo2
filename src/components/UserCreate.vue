@@ -3,20 +3,18 @@
     <v-col cols="12" sm="10" md="8" lg="6">
       <v-card class="ma-15" ref="form">
         <div class="card card-body mt-4" style="background: aqua">
-          <form @submit.prevent="onSubmit">
             <v-card-text>
               <v-card-title class="logintitle"><h1>Enter Name Info</h1></v-card-title>
               <v-text-field
-                v-model="form.email"
+                v-model="name"
                 type="text"
-                :error-messages="errorMessages"
                 label="Enter Name"
                 placeholder="Name"
                 required
               ></v-text-field>
               <v-text-field
-                v-model="form.name"
-                :error-messages="errorMessages"
+                v-model="email"
+                type="text"
                 label="Enter Email"
                 placeholder="Email"
                 required
@@ -28,12 +26,13 @@
                   type="submit"
                   class="btn btn-success mt-3"
                   style="background: royalblue"
+                  @click="onSubmit"
                 >
                   Submit
                 </button>
               </span>
             </v-card-actions>
-          </form>
+        
         </div>
       </v-card>
     </v-col>
