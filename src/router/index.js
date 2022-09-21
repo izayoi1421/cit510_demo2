@@ -12,7 +12,8 @@ import Register from '../views/Register.vue'
 import SignIn from '../views/SignIn.vue'
 import MakeAdmin from '../views/MakeAdmin.vue'
 import Test from '../views/Test.vue'
-
+import Home from '@/views/Home.vue'
+import Edit from '@/views/Edit.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,6 +100,16 @@ const router = createRouter({
       name: 'test',
       component: Test,
     },    
+    {
+      path: '/crud',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/edit/:id',
+      name: 'Edit',
+      component: Edit
+    },
   ]
 })
 const getCurrentUser = () => {

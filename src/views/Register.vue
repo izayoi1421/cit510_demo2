@@ -29,7 +29,7 @@
               rounded
               color="#00539CFF"
               class="btn"
-              @click="signin"
+              @click="register"
               >Register</v-btn
             >
           </span>
