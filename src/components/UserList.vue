@@ -26,12 +26,9 @@
                     </span>
                     <v-spacer></v-spacer>
                     <span style="padding-right: 60px; padding-bottom: 15px">
-                      <button
-                        class="btn btn-danger btn-sm"
-                        @click="deleteUser(id)"
-                      >
-                        Unpublish
-                      </button>
+                      <v-btn type="text" rounded color="#00539CFF" class="btn"  @click="deleteUser(id)">
+                        Delete
+                      </v-btn>
                     </span>
                   </v-card-actions>
                 </td>
@@ -54,7 +51,7 @@
     },
   };
   </script>
-  
+
 <style scoped>
 .vrow {
   justify-content: center;
@@ -77,7 +74,7 @@
 }
 .ma-15 {
   justify-content: center;
-  width: 400px;
+  width: 450px;
   border-radius: 50px;
   padding-top: 20px;
   background-color: rgba(128, 170, 247, 0.897);

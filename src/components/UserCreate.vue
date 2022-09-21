@@ -5,7 +5,7 @@
         <div class="card card-body mt-4" style="background: aqua">
           <form @submit.prevent="onSubmit">
             <v-card-text>
-              <v-card-title class="logintitle"><h1>Enter a account details</h1></v-card-title>
+              <v-card-title class="logintitle"><h1>Enter Name Info</h1></v-card-title>
               <v-text-field
                 v-model="form.email"
                 type="text"
@@ -29,7 +29,7 @@
                   class="btn btn-success mt-3"
                   style="background: royalblue"
                 >
-                  Publish
+                  Submit
                 </button>
               </span>
             </v-card-actions>
